@@ -1,0 +1,57 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}Catégories{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+{% endblock %}
+{% block body %}
+    <div class="card">
+        <div class="card-header card-header-primary">
+            <h4>Catégories d'article</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table" id="categories">
+                    <thead>
+                    <tr>
+                        <th>Nom de catégorie</th>
+                        <th>actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for category in categories %}
+                        <tr>
+                            <td>{{ category.name }}</td>
+                            <td>
+                                <a href="{{ path('category_show', {'id': category.id}) }}" class="btn btn-primary">Voir</a>
+                                <a href="{{ path('category_edit', {'id': category.id}) }}" class="btn btn-warning">Modifier</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="3">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer">
+            <a href="{{ path('category_new') }}" class="btn btn-primary">Ajouter</a>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#categories').DataTable( {
+                "language": {
+                    "url":"//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
+                }
+            } );
+        } );
+    </script>
+{% endblock %}

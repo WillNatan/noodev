@@ -1,0 +1,63 @@
+{% extends 'back/base.html.twig' %}
+
+{% block body %}
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header card-header-danger">Edition Profil</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            {{ form_errors(form.description) }}
+                            <div class="form-group">
+                                <h4 class="text-primary">Pseudo</h4>
+                                {{ form_widget(form.username) }}
+                            </div>
+                            <div class="form-group">
+                                <h4 class="text-primary">Adresse email</h4>
+                                {{ form_widget(form.email) }}
+                            </div>
+                            <div class="form-group">
+                                <h4 class="text-primary">Description</h4>
+                                {{ form_widget(form.description) }}
+                            </div>
+                            <div class="form-group">
+                                <h4 class="text-primary">Rôles</h4>
+                                {{ form_widget(form.roles) }}
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success">Valider</button>
+                    <a href="{{ path('profile_index', {'id': user.id}) }}"><button type="button" class="btn btn-primary">Retour</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card card-profile ml-auto mr-auto" style="max-width: 360px">
+                <div class="card-header card-header-image">
+                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail img-raised">
+                            <img src="{% if lastImg is defined %}{{ asset('assets/avatars/'~lastImg) }}{% else %}{{ asset('assets/dashboard/img/image_placeholder.jpg') }}{% endif %}" alt="...">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail img-raised"></div>
+                        <div>
+        <span class="btn btn-raised btn-round btn-default btn-file">
+            <span class="fileinput-new">{{ form_label(form.avatar) }}</span>
+            {{ form_widget(form.avatar) }}
+            <span class="fileinput-exists">{{ form_label(form.avatar) }}</span>
+        </span>
+                            <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body ">
+                    <h4 class="card-title">{{ user.username }}</h4>
+                    <h6 class="card-category text-gray">{% for role in user.roles %}{{ role }} {% endfor %}</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}

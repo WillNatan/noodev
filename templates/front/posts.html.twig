@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Noodev - {{ cateogry.name }}{% endblock %}
+{% block header %}
+    <div class="page-header header-filter header-small" data-parallax="true" style="background-image: url('{{asset('assets/img/bg9.jpg')}}');">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="title text-center">Catégorie - {{ cateogry.name }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block body %}
+    <div class="main main-raised">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-1">
+                    <h2 class="title">Catégorie - {{  cateogry.name }}</h2>
+                    <br />
+                    <div class="row">
+                        {% for article in articles %}
+                                        <div class="col-md-4">
+                                            <div class="card card-plain card-blog">
+                                                <a href="{{ path('single_blog', {'slug':article.slug}) }}" data-article="{{ article.id }}" class="article-view">
+                                                <div class="card-image">
+                                                        <img class="img img-raised" src="{{ asset('assets/allImg/'~article.thumbnailImg) }}" />
+                                                </div>
+                                                </a>
+
+                                                <div class="card-content">
+                                                    <h6 class="category text-info">{{ article.category.name }}</h6>
+                                                    <h4 class="card-title">
+                                                        <a href="{{ path('single_blog', {'slug':article.slug}) }}">{{ article.title }}</a>
+                                                    </h4>
+                                                    <p class="card-description">
+                                                        {{ article.description }}<a href="{{ path('single_blog', {'slug':article.slug}) }}"> Voir plus </a>
+                                                    </p>
+
+                                                    <p class="author text-right"><i class="material-icons">remove_red_eye</i>{{ article.views }} <i class="material-icons">calendar_today</i> {{ article.createdAt|date('d-m-y') }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                            {% else %}
+                            <p>Aucun article dans cette catégorie.</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                <div class="col-md-2">
+                    <h2 class="title">Interface</h2>
+                    <div class="card card-plain card-blog">
+                        <div class="card-image">
+                            <a href="#pablo">
+                                <img class="img img-raised" src="https://picsum.photos//id/990/800/533" />
+                            </a>
+                        </div>
+
+                        <div class="card-content">
+                            <h6 class="category text-danger">
+                                <i class="material-icons">trending_up</i> Enterprise
+                            </h6>
+                            <h4 class="card-title">
+                                <a href="#pablo">6 insights into the French Fashion landscape</a>
+                            </h4>
+                            <p class="card-description">
+                                Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses.<a href="#pablo"> Read More </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card card-plain card-blog">
+                        <div class="card-image">
+                            <a href="#pablo">
+                                <img class="img img-raised" src="https://picsum.photos//id/989/800/533" />
+                            </a>
+                        </div>
+
+                        <div class="card-content">
+                            <h6 class="category text-danger">
+                                <i class="material-icons">trending_up</i> Enterprise
+                            </h6>
+                            <h4 class="card-title">
+                                <a href="#pablo">6 insights into the French Fashion landscape</a>
+                            </h4>
+                            <p class="card-description">
+                                Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses.<a href="#pablo"> Read More </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('assets/js/scripts.js') }}"></script>
+{% endblock %}

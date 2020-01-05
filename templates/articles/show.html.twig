@@ -1,0 +1,65 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}Articles{% endblock %}
+
+{% block body %}
+    <div class="card">
+        <div class="card-header card-header-primary">
+            <h4>{{ article.title }}</h4>
+
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{{ asset('assets/allImg/'~ article.thumbnailImg) }}" class="w-100 img-fluid" alt="miniature">
+                </div>
+                <div class="col-md-6">
+                    <hr>
+                    <div>
+                        <h4 class="text-primary">Date de création</h4>
+                        <p>{{ article.createdAt ? article.createdAt|date('Y-m-d') : '' }}</p>
+                    </div>
+                    <hr>
+                    <div>
+                        <h4 class="text-primary">Titre</h4>
+                        <p>{{ article.title }}</p>
+                    </div>
+                    <hr>
+                    <div>
+                        <h4 class="text-primary">Description</h4>
+                        <p>{{ article.description }}</p>
+                    </div>
+                    <hr>
+                    <div>
+                        <h4 class="text-primary">Catégorie</h4>
+                        <p>{{ article.category.name }}</p>
+                    </div>
+                    <hr>
+                    <div>
+                        <h4 class="text-primary">Nombre de vues</h4>
+                        <p>{{ article.views }}</p>
+                    </div>
+                    <div>
+                        <h4 class="text-primary">Créateur</h4>
+                        <p><a href="{{ path('user_show',{'id':article.user.id}) }}">{{ article.user.username }}</a></p>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <hr>
+                    <div>
+                        <h4 class="text-primary">Contenu de l'article</h4>
+                        <p>{{ article.body|raw }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="{{ path('articles_index') }}" class="btn btn-primary">Retour</a>
+
+                <a href="{{ path('articles_edit', {'id': article.id}) }}" class="btn btn-warning">Modifier</a>
+
+                {{ include('articles/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

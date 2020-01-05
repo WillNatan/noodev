@@ -1,0 +1,61 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}Utilisateurs{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+{% endblock %}
+
+{% block body %}
+    <div class="card">
+        <div class="card-header card-header-primary">
+            <h4 class="card-title ">Utilisateurs</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table" id="users">
+                    <thead>
+                    <tr>
+                        <th>Nom d'utilisateur</th>
+                        <th>actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.username }}</td>
+                            <td>
+                                <a href="{{ path('user_show', {'id': user.id}) }}"><button class="btn btn-primary">Voir</button></a>
+                                {% if app.user.username == user.username %}
+                                {% else %}
+                                    <a href="{{ path('user_edit', {'id': user.id}) }}"><button class="btn btn-warning">Modifier</button></a>
+                                    {% endif %}
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="6">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer">
+            <a href="{{ path('user_new') }}"><button class="btn btn-success">Ajouter</button></a>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#users').DataTable( {
+                "language": {
+                    "url":"//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
+                }
+            } );
+        } );
+    </script>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}Commentaires{% endblock %}
+
+{% block body %}
+    <div class="card">
+        <div class="card-header-primary">
+            <h4>Commentaires</h4>
+        </div>
+        <div class="card-body">
+            <ul class="nav flex-column">
+            {% for article in articles %}
+                <ul class="nav">
+                    <li class="nav-item ">
+                        <a class="nav-link" data-toggle="collapse" href="#test">
+                            <button class="button btn btn-primary">
+                                <span class="sidebar-normal"> {{ article.title }}
+                                    <b class="caret"></b>
+                                </span>
+                            </button>
+                        </a>
+
+                        <div class="collapse" id="test">
+                            <ul class="nav flex-column">
+                                {% for comment in article.comments %}
+                                    <li class="nav-item">
+                                        <div class="d-flex flex-row">
+                                            <a class="nav-link">- {{ comment.body }}</a>
+                                            {{ include('front/_delete_formComment.html.twig') }}
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            {% endfor %}
+            </ul>
+        </div>
+        <div class="card-footer">
+
+        </div>
+    </div>
+{% endblock %}

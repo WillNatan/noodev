@@ -1,0 +1,41 @@
+{% extends 'back/base.html.twig' %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header card-header-danger">Profil</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="text-primary">Pseudo</h4>
+                        <p>{{ user.username }}</p>
+                        <hr>
+                        <h4 class="text-primary">Adresse email</h4>
+                        <p>{{ user.email }}</p>
+                        <hr>
+                        <h4 class="text-primary">Description</h4>
+                        <p>{{ user.description }}</p>
+                    </div>
+                </div>
+                <a href="{{ path('profile_edit', {'id': user.id}) }}"><button class="btn btn-success">Modifier</button></a>
+                <a href="{{ path('profile_edit_password', {'id': user.id}) }}"><button class="btn btn-outline-warning">Modifier mot de passe</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card card-profile ml-auto mr-auto" style="max-width: 360px">
+            <div class="card-header card-header-image">
+                <a href="{{ path('profile_edit', {'id': user.id}) }}">
+                    <img class="img" src="{{ asset('assets/avatars/'~user.avatar) }}" alt="avatar">
+                </a>
+            </div>
+
+            <div class="card-body ">
+                <h4 class="card-title">{{ user.username }}</h4>
+                <h6 class="card-category text-gray">{% for role in user.roles %}{{ role }} {% endfor %}</h6>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

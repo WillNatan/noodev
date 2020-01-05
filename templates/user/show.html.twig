@@ -1,0 +1,45 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}Utilisateur{% endblock %}
+
+{% block body %}
+    <div class="card">
+        <div class="card-header card-header-primary">
+            <h4 class="card-title ">{{ user.username }}</h4>
+        </div>
+        <div class="card-body">
+            <hr>
+            <div class="row">
+                <div class="col-md-2 offset-md-2">
+                    <h4 class="text-primary text-center">Avatar</h4>
+                    <img src="{{ asset('assets/avatars/'~user.avatar) }}" class="img-fluid w-100" alt="Avatar">
+                </div>
+                <div class="col-md-6 offset-md-2">
+                    <h4 class="text-primary">Adresse Email</h4>
+                    <p>{{ user.email }}</p>
+                    <hr>
+                    <h4 class="text-primary">Pseudo</h4>
+                    <p>{{ user.username }}</p>
+                    <hr>
+                    <h4 class="text-primary">Rôles utilisateur</h4>
+                    <p>
+                        {% for role in user.roles %}
+                            {{ role }},
+                        {% endfor %}
+                    </p>
+                    <hr>
+                    <h4 class="text-primary">Description</h4>
+                    <p>{{ user.description }}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="{{ path('user_edit_password', {'id': user.id}) }}" class="btn btn-outline-primary">Modifier le mot de passe</a>
+                <a class="btn btn-primary" href="{{ path('user_index') }}">Retour</a>
+
+                <a href="{{ path('user_edit', {'id': user.id}) }}" class="btn btn-warning">Modifier</a>
+
+                {{ include('user/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

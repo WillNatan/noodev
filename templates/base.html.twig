@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/material-kit.css') }}?v=1.2.1">
+        <link rel="stylesheet" href="{{ asset('assets/css/vertical-nav.css') }}">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <link rel="icon" href="{{ asset('assets/img/logow.png') }}">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        <nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll" color-on-scroll="100">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ path('blogspot') }}"><img src="{{ asset('assets/img/logo.png') }}" alt="brand"></a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navigation-example">
+                    <ul class="nav navbar-nav navbar-center">
+                        <li>
+                            <a href="{{ path('blogspot') }}">
+                                Accueil
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">Catégories
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                {% for category in categories.categories.categoriesGlobal %}
+                                    <li><a href="{{ path('blogs_category',{'name':category.name}) }}">{{ category.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="{{ path('allArticles') }}">
+                                Articles
+                            </a>
+                        </li>
+                        <form class="navbar-form navbar-right" role="search" action="{{ path('search-article') }}" method="post">
+                            <div class="form-group form-white">
+                                <input type="text" name="search-value" class="form-control text-light" placeholder="Rechercher">
+                            </div>
+                            <button type="submit" class="btn btn-white btn-raised btn-fab btn-fab-mini"><i class="material-icons">search</i></button>
+                        </form>
+                        {% if app.user %}
+                            <li class="dropdown d-block d-md-none">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-user"></i> {{ app.user.username }}
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li><a href="{{ path('blogspot_profile') }}">Profil</a></li>
+                                    <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li class=" d-block d-md-none">
+                                <a href="{{ path('app_login') }}">
+                                    <i class="fa fa-user"></i> Connexion
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li class=" d-block d-md-none">
+                                <a href="{{ path('adminDashboard') }}"><i class="fa fa-star"></i> Administration</a>
+                            </li>
+                        {% endif %}
+                        {% if app.user %}
+                        {% else %}
+                            <li class=" d-block d-md-none">
+                                <a href="{{ path('register') }}"><i class="material-icons">person_add</i> S'inscrire</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="https://www.facebook.com/CreativeTim">
+                                <i class="fa fa-facebook-square"></i>
+                            </a>
+                        </li>
+                        {% if app.user %}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-user"></i> {{ app.user.username }}
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="{{ path('blogspot_profile') }}">Profil</a></li>
+                                <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+                            </ul>
+                        </li>
+                            {% else %}
+                                <li>
+                                <a href="{{ path('app_login') }}">
+                                    <i class="fa fa-user"></i> Connexion
+                                </a>
+                                </li>
+                            {% endif %}
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li>
+                                <a href="{{ path('adminDashboard') }}"><i class="fa fa-star"></i> Administration</a>
+                            </li>
+                        {% endif %}
+                        {% if app.user %}
+                        {% else %}
+                        <li>
+                            <a href="{{ path('register') }}"><i class="material-icons">person_add</i> S'inscrire</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        {% block header %}{% endblock %}
+        {% block body %}{% endblock %}
+        <footer class="footer">
+            <div class="container">
+                <nav class="pull-left">
+                    <ul>
+                        <li>
+                            <a href="{{ path('adminDashboard') }}">
+                                Noodev
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('allArticles') }}">
+                                Tous les articles
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="copyright pull-right">
+                    &copy; 2019, noodev
+                </div>
+            </div>
+        </footer>
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/material.min.js') }}"></script>
+    <script src="{{ asset('assets/js/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap-tagsinput.js') }}"></script>
+    <script src="{{ asset('assets/js/jasny-bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/material-kit.js') }}?v=1.2.1"></script>
+        <script src="{{ asset('assets/js/main.js') }}"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

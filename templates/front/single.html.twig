@@ -1,0 +1,204 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ article.category.name }} - {{ article.title }}{% endblock %}
+
+{% block header %}
+    <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{ asset('assets/allImg/'~article.thumbnailImg) }}');">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <h1 class="title">{{ article.title }}</h1>
+                    <h4>{{ article.description }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <div class="main main-raised" id="body">
+        <div class="container">
+            <div class="section section-text">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <p>{{ article.body|raw }}</p>
+                    </div>
+                    <div class="col-md-2">
+                        <h4 class="text-primary text-center">Publicité</h4>
+                    </div>
+                    <div class="col-md-12">
+                        <h4 class="text-primary text-center">Publicité</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section section-blog-info">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="blog-tags">
+                                    Tags:
+                                    <span class="label label-primary">{{ article.category.name }}</span>
+                                </div>
+                            </div>
+                            <!--
+                            <div class="col-md-6">
+                                <a href="#pablo" class="btn btn-google btn-round pull-right">
+                                    <i class="fa fa-google"></i> 232
+                                </a>
+                                <a href="#pablo" class="btn btn-twitter btn-round pull-right">
+                                    <i class="fa fa-twitter"></i> 910
+                                </a>
+                                <a href="#pablo" class="btn btn-facebook btn-round pull-right">
+                                    <i class="fa fa-facebook-square"></i> 872
+                                </a>
+
+                            </div>
+                            -->
+                        </div>
+
+                        <hr />
+                        <div class="card card-profile card-plain">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="card-avatar">
+                                        <img class="img" src="{{ asset('assets/avatars/'~article.user.avatar) }}" alt="Miniature-avatar">
+                                        <div class="ripple-container"></div></div>
+                                </div>
+                                <div class="col-md-8">
+                                    <h4 class="card-title">{{ article.user.username }}</h4>
+                                    <p class="description">{{ article.user.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section section-comments">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="media-area">
+                            <h3 class="title text-center">{{ article.comments|length }} commentaire(s)</h3>
+                            {% for comment in article.comments %}
+                                <div class="media">
+                                        <div class="pull-left">
+                                            <div class="avatar">
+                                                {% if comment.user.avatar %}
+                                                    <img class="media-object" alt="Miniature" src="{{asset('assets/avatars/'~comment.user.avatar)}}">
+                                                {% else %}
+                                                    <img class="media-object" alt="Miniature" src="{{asset('assets/avatars/default.png')}}">
+                                                    {% endif %}
+                                            </div>
+                                        </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">{{ comment.user.username }} <small>&middot; {{ comment.createdAt|date('d-m-Y') }}</small></h4>
+
+                                        <p>{{ comment.body }}</p>
+
+                                        <!--
+                                        <div class="media">
+                                            <a class="pull-left" href="#pablo">
+                                                <div class="avatar">
+                                                    <img class="media-object" alt="64x64" src="{{asset('assets/dashboard/img/faces/avatar.jpg')}}">
+                                                </div>
+                                            </a>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">Tina Andrew <small>&middot; 12 Hours Ago</small></h4>
+
+                                                <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
+                                                <p> Don't forget, You're Awesome!</p>
+
+                                                <div class="media-footer">
+                                                    <a href="#pablo" class="btn btn-primary btn-simple pull-right" rel="tooltip" title="Reply to Comment">
+                                                        <i class="material-icons">reply</i> Reply
+                                                    </a>
+                                                    <a href="#pablo" class="btn btn-default btn-simple pull-right">
+                                                        <i class="material-icons">favorite</i> 2
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        -->
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                        <h3 class="title text-center">Votre commentaire</h3>
+                        {% if app.user %}
+                        <div class="media media-post">
+                            {% for message in app.flashes('success') %}
+                                <div class="alert alert-success">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                            <div class="pull-left author">
+                                <div class="avatar">
+                                    {% if user.avatar %}
+                                        <img class="media-object" alt="64x64" src="{{ asset('assets/avatars/'~user.avatar) }}">
+                                    {% else %}
+                                        <img class="media-object" alt="64x64" src="{{ asset('assets/avatars/default.png') }}">
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                {{ form_start(form) }}
+                                {{ form_widget(form.body) }}
+                                <div class="media-footer">
+                                    <button type="submit" class="btn btn-primary btn-round btn-wd pull-right">Publier</button>
+                                </div>
+                                {{ form_end(form) }}
+                            </div>
+                        </div>
+                        {% else %}
+                        <a href="{{ path('app_login') }}"><button class="d-block btn btn-success ml-auto mr-auto">Veuillez vous connecter</button></a>
+                        {% endif %}<!-- end media-post -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="title text-center">Articles Similaires</h2>
+                    <br />
+                    <div class="row">
+                        {% for relatedPost in relatedPosts %}
+                            <div class="col-md-4">
+                                <div class="card card-blog">
+                                    <a href="{{ path('single_blog',{'slug':relatedPost.slug}) }}" class="article-view" data-article="{{ relatedPost.id }}">
+                                    <div class="card-image">
+                                            <img class="img img-raised" src="{{ asset('assets/allImg/'~relatedPost.thumbnailImg) }}" />
+                                    </div>
+                                    </a>
+
+                                    <div class="card-content">
+                                        <h6 class="category text-info">{{ relatedPost.category.name }}</h6>
+                                        <h4 class="card-title">
+                                            <a href="{{ path('single_blog',{'slug':relatedPost.slug}) }}">{{ relatedPost.title }}</a>
+                                        </h4>
+                                        <p class="card-description">
+                                            {{ relatedPost.description }} <a href="{{ path('single_blog',{'slug':relatedPost.slug}) }}"> Voir plus </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('assets/js/scripts.js') }}"></script>
+{% endblock %}

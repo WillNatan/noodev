@@ -1,0 +1,10 @@
+swiftmailer:
+     # url: '%env(MAILER_URL)%'
+    transport: smtp
+    host: smtp.ionos.com
+    port: 465
+    username: messagerie@wnatan.fr
+    encryption: ssl
+    password: EmailPass974
+    auth_mode: login
+    spool: { type: 'memory' }

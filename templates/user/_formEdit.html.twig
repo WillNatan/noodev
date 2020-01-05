@@ -1,0 +1,53 @@
+<div class="card">
+    <div class="card-header card-header-primary">
+        <h4 class="card-title ">{{ title|default('title') }}</h4>
+    </div>
+    <div class="card-body">
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group text-center">
+                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail img-raised">
+                            <img src="{% if lastImg is defined %}{{ asset('assets/avatars/'~lastImg) }}{% else %}{{ asset('assets/dashboard/img/image_placeholder.jpg') }}{% endif %}" alt="...">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail img-raised"></div>
+                        <div>
+        <span class="btn btn-raised btn-round btn-default btn-file">
+            <span class="fileinput-new">{{ form_label(form.avatar) }}</span>
+            {{ form_widget(form.avatar) }}
+            <span class="fileinput-exists">{{ form_label(form.avatar) }}</span>
+        </span>
+                            <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Adresse Email</label>
+                    {{ form_widget(form.email) }}
+                </div>
+                <div class="form-group">
+                    <label>Pseudo</label>
+                    {{ form_widget(form.username) }}
+                </div>
+                <div class="form-group">
+                    <label>Rôles</label>
+                    {{ form_widget(form.roles) }}
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Description</label>
+                    {{ form_widget(form.description) }}
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+            <a class="btn btn-primary" href="{{ path('user_index') }}">Retour</a>
+        </div>
+        {{ form_end(form) }}
+    </div>
+</div>

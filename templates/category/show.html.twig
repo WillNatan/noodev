@@ -1,0 +1,31 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}Category{% endblock %}
+
+{% block body %}
+    <div class="card">
+        <div class="card-header card-header-primary">
+            <h4>{{category.name}}</h4>
+        </div>
+        <div class="card-body">
+
+
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th>Nom de la catégorie</th>
+                    <td>{{ category.name }}</td>
+                </tr>
+                </tbody>
+            </table>
+
+           <div class="card-footer">
+               <a href="{{ path('category_index') }}" class="btn btn-primary">Retour</a>
+
+               <a href="{{ path('category_edit', {'id': category.id}) }}" class="btn btn-warning">Modifier</a>
+
+               {{ include('category/_delete_form.html.twig') }}
+           </div>
+        </div>
+    </div>
+{% endblock %}

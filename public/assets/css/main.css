@@ -1,0 +1,82 @@
+.d-block{
+ display: block!important;
+}
+
+.mr-auto{
+    margin-right: auto!important;
+}
+
+.ml-auto{
+    margin-left: auto!important;
+}
+
+.navbar .navbar-nav > li > a{
+    transition: .2s ease-in-out!important;
+}
+
+.navbar .navbar-nav > li > a:hover{
+    color: #0b9cff !important;
+}
+
+.sidebar .logo .simple-text img{
+    height:30px;
+}
+
+.navbar-brand>img{
+    height: 40px;
+}
+
+select{
+    height:auto!important;
+}
+
+form .form-group select.form-control{
+    position: relative;
+}
+
+.btn {
+    flex-grow: 1;
+}
+
+.card .card-body+.card-footer, .card .card-footer{
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+form{
+    width:100%!important;
+}
+
+@media screen  and (min-width: 768px){
+    .btn {
+        flex-grow: 0;
+    }
+
+    .d-md-none{
+        display: none!important;
+    }
+
+    form{
+        width:auto!important;
+    }
+    .card .card-body+.card-footer, .card .card-footer{
+        flex-wrap: nowrap;
+    }
+}
+
+.note-input{
+    opacity: 1!important;
+    position: initial!important;
+}
+
+.bmd-form-group .bmd-label-static:not(label){
+    top:.35rem!important;
+}
+
+.note-modal-footer{
+    height:60px!important;
+}
+
+.note-editor.note-frame .note-editing-area .note-codable{
+    height:500px!important;
+}

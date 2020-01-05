@@ -1,0 +1,165 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Noodev - Accueil{% endblock %}
+{% block header %}
+<div class="page-header header-filter" style="background-image: url({{ asset('assets/img/office2.jpg') }});">
+    <div class="container">
+        <div class="row">
+            {% if app.user %}
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <h1 class="title">Bienvenue sur</h1>
+                    <img src="{{ asset('assets/img/logow.png') }}" class="img-fluid" alt="NoodevLogo">
+                    </div>
+            {% else %}
+                <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+                    <div class="card card-signup">
+                        <div class="header header-primary text-center">
+                            <h4 class="card-title">Créez votre compte</h4>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                {{ form_start(form) }}
+                                    <div class="card-content">
+                                        <div class="input-group">
+											<span class="input-group-addon">
+												<i class="material-icons">face</i>
+											</span>
+                                            {{ form_widget(form.username) }}
+                                        </div>
+
+                                        <div class="input-group">
+											<span class="input-group-addon">
+												<i class="material-icons">email</i>
+											</span>
+                                            {{ form_widget(form.email) }}
+                                        </div>
+
+                                        <div class="input-group">
+											<span class="input-group-addon">
+												<i class="material-icons">lock_outline</i>
+											</span>
+                                            {{ form_widget(form.plainPassword.first) }}
+                                        </div>
+                                        <div class="input-group">
+											<span class="input-group-addon">
+												<i class="material-icons">lock_outline</i>
+											</span>
+                                            {{ form_widget(form.plainPassword.second) }}
+                                        </div>
+                                    </div>
+                                    <div class="footer text-center">
+                                        <button type="submit" class="btn btn-primary btn-round">Créer compte</button>
+                                    </div>
+                                {{ form_end(form) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block body %}
+    <div class="blogs-2" id="blogs-2">
+        <div class="container-fluid">
+            <div class="row">
+                {% for message in app.flashes('notice') %}
+                    <div class="col-md-12">
+                        <div class="alert alert-success">
+                            {{ message }}
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="col-md-8 col-md-offset-1">
+                    <h2 class="title">Derniers articles</h2>
+                        {% for article in latestArticles %}
+                            {% if loop.index == 1 %}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card card-raised card-background" style="background-image: url('{{ asset('assets/allImg/'~article.thumbnailImg) }}')">
+                                            <div class="card-content">
+                                                <h6 class="category text-info">{{ article.category.name }}</h6>
+                                                    <h3 class="card-title">{{ article.title }}</h3>
+                                                <p class="card-description">
+                                                    {{ article.description }}
+                                                </p>
+                                                <a href="{{ path('single_blog',{'slug':article.slug}) }}" data-article="{{ article.id }}" class="article-view btn btn-danger btn-round">
+                                                    <i class="material-icons">format_align_left</i> Lire l'article
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    {% if loop.index == 2 %}
+                                    <div class="col-md-6">
+                                        <div class="card card-raised card-background" style="background-image: url('{{ article.thumbnailImg }}')">
+                                            <div class="card-content">
+                                                <h6 class="category text-info">{{ article.category.name }}</h6>
+                                                <h3 class="card-title">{{ article.title }}</h3>
+                                                <p class="card-description">
+                                                    {{ article.description }}
+                                                </p>
+                                                <a href="{{ path('single_blog',{'id':article.id}) }}" data-article="{{ article.id }}" class="article-view btn btn-primary btn-round">
+                                                    <i class="material-icons">format_align_left</i> Lire l'article
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% else %}
+                                        {% if loop.index == 3 %}
+                                            <div class="col-md-12">
+                                                <div class="card card-raised card-background" style="background-image: url('{{ article.thumbnailImg }}')">
+                                                    <div class="card-content">
+                                                        <h6 class="category text-info">{{ article.category.name }}</h6>
+                                                        <h3 class="card-title">{{ article.title }}</h3>
+                                                        <p class="card-description">
+                                                            {{ article.description }}
+                                                        </p>
+                                                        <a href="{{ path('single_blog',{"id":article.id}) }}" data-article="{{ article.id }}" class="article-view btn btn-warning btn-round">
+                                                            <i class="material-icons">subject</i> Lire l'article
+                                                        </a>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% else %}
+                                    <div class="col-md-4">
+                                        <div class="card card-plain card-blog">
+                                            <div class="card-image">
+                                                <a href="{{ path('single_blog', {'id':article.id}) }}" class="article-view" data-article="{{ article.id }}">
+                                                    <img class="img img-raised" src="{{ article.thumbnailImg }}" />
+                                                </a>
+                                            </div>
+
+                                            <div class="card-content">
+                                                <h6 class="category text-info">{{ article.category.name }}</h6>
+                                                <h4 class="card-title">
+                                                    <a href="{{ path('single_blog', {'id':article.id}) }}" class="article-view" data-article="{{ article.id }}">{{ article.title }}</a>
+                                                </h4>
+                                                <p class="card-description">
+                                                    {{ article.description }}<a href="{{ path('single_blog', {'id':article.id}) }}"> Voir plus </a>
+                                                </p>
+
+                                                <p class="author text-right"><i class="material-icons">remove_red_eye</i>{{ article.views }} <i class="material-icons">calendar_today</i> {{ article.createdAt|date('d-m-y') }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                            {% endif %}
+                            {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <a href="{{ path('allArticles') }}"><button class="btn-success btn d-block mr-auto ml-auto">Voir tous les articles</button></a>
+                </div>
+
+                <div class="col-md-2">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+<script src="{{ asset('assets/js/scripts.js') }}"></script>
+{% endblock %}

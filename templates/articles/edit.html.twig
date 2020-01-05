@@ -1,0 +1,22 @@
+{% extends 'back/base.html.twig' %}
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('assets/vendors/summernote/dist/summernote-bs4.css') }}">
+{% endblock %}
+{% block title %}Edit Articles{% endblock %}
+
+{% block body %}
+    <h1>Edit Articles</h1>
+
+    {{ include('articles/_form.html.twig', {'button_label': 'Modifier'}) }}
+    {{ include('articles/_delete_form.html.twig') }}
+{% endblock %}
+    {% block js %}
+        <script src="https://cdn.tiny.cloud/1/asa3dbsz0r9ojprv7ck135v4gc3nmyyh2lrwaqs5iuxnae3q/tinymce/5/tinymce.min.js"></script>
+        <script src="{{ asset('assets/vendors/summernote/dist/summernote-bs4.js') }}"></script>
+        <script>
+            $('#articles_body').summernote({
+                height: 100,
+                focus: false,
+            });
+        </script>
+    {% endblock %}

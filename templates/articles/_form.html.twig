@@ -1,0 +1,54 @@
+{{ form_start(form) }}
+    <div class="card">
+        <div class="card-header card-header-primary">
+            {{ title|default('title') }}
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail img-raised">
+                            <img src="{% if lastImg is defined %}{{ asset('assets/allImg/'~lastImg) }}{% else %}{{ asset('assets/dashboard/img/image_placeholder.jpg') }}{% endif %}" alt="...">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail img-raised"></div>
+                        <div>
+        <span class="btn btn-raised btn-round btn-default btn-file">
+            <span class="fileinput-new">{{ form_label(form.thumbnail_img) }}</span>
+            {{ form_widget(form.thumbnail_img) }}
+            <span class="fileinput-exists">{{ form_label(form.thumbnail_img) }}</span>
+        </span>
+                            <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    {{ form_errors(form.title) }}
+                    {{ form_errors(form.description) }}
+                    {{ form_errors(form.Category) }}
+                    {{ form_errors(form.body) }}
+                    <div class="form-group">
+                        <label>Titre de l'article</label>
+                        {{ form_widget(form.title) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Catégorie</label>
+                        {{ form_widget(form.Category) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        {{ form_widget(form.description) }}
+                    </div>
+                </div>
+                <div class="col-md-12">
+                        <label>Contenu de l'article</label>
+                        {{ form_widget(form.body) }}
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+                <a href="{{ path('articles_index') }}" class="btn btn-primary">Retour</a>
+            </div>
+        </div>
+    </div>
+{{ form_end(form) }}

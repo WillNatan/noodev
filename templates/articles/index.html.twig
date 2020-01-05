@@ -1,0 +1,63 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}Articles index{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+{% endblock %}
+{% block body %}
+    <div class="card">
+        <div class="card-header card-header-primary">
+            <h4>Articles</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table" id="articles">
+                    <thead>
+                    <tr>
+                        <th>Miniature</th>
+                        <th>Date de création</th>
+                        <th>Titre</th>
+                        <th>actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for article in articles %}
+                        <tr>
+                            <td><img src="{{ asset('assets/allImg/'~article.thumbnailImg) }}" alt="Miniature" width="50"></td>
+                            <td>{{ article.createdAt ? article.createdAt|date('Y-m-d') : '' }}</td>
+                            <td>{{ article.title }}</td>
+                            <td>
+                                <a href="{{ path('articles_show', {'id': article.id}) }}" class="btn btn-primary">Voir</a>
+                                <a href="{{ path('articles_edit', {'id': article.id}) }}" class="btn btn-warning">Modifier</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="8">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card-footer">
+                <a href="{{ path('articles_new') }}" class="btn btn-primary">Ajouter</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#articles').DataTable( {
+                "language": {
+                    "url":"//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
+                }
+            } );
+        } );
+    </script>
+{% endblock %}

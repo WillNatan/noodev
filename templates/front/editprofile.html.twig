@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <div class="page-header header-filter" filter-color="purple" style="background-image: url('{{ asset('assets/img/bg7.jpg') }}'); background-size: cover; background-position: top center;">
+        <div class="container">
+            <div class="card card-signup">
+                <div class="header header-primary text-center">
+                    <h4 class="card-title">Modifier vos informations</h4>
+
+                </div>
+                {{ form_start(form) }}
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-4">
+                            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                <div class="fileinput-new thumbnail img-raised">
+                                    {% if user.avatar %}
+                                    <img src="{{ asset('assets/avatars/'~user.avatar) }}" alt="Avatar">
+                                    {% else %}
+                                        <img src="{{ asset('assets/avatars/default.png') }}" alt="Avatar">
+                                    {% endif %}
+                                </div>
+                                <div class="fileinput-preview fileinput-exists thumbnail img-raised"></div>
+                                <div>
+                                    <span class="btn btn-raised btn-round btn-default btn-file">
+                                        <span class="fileinput-new text-light">{{ form_label(form.avatar) }}</span>
+                                        {{ form_widget(form.avatar) }}
+                                        <span class="fileinput-exists text-light">{{ form_label(form.avatar) }}</span>
+                                    </span>
+                                    <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Supprimer</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-md-offset-1">
+                            <div class="form-group">
+                                <h4 class="text-primary font-weight-bold">Nom d'utilisateur</h4>
+                                {{ form_widget(form.username) }}
+                            </div>
+                            <div class="form-group">
+                                <h4 class="text-primary">Adresse email</h4>
+                                {{ form_widget(form.email) }}
+                            </div>
+                            <div class="form-group">
+                                <h4 class="text-primary">Description</h4>
+                                {{ form_widget(form.description) }}
+                            </div>
+                            <button type="submit" class="btn btn-primary">Confirmer les modifications</button>
+                            <a href="{{ path('blogspot_profile_edit_password') }}"><button type="button" class="btn btn-warning">Modifier votre mot de passe</button></a>
+                            <a href="{{ path('blogspot_profile') }}"><button type="button" class="btn btn-secondary">Retour au profil</button></a>
+                        </div>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

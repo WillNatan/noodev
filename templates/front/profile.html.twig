@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <div class="page-header header-filter" filter-color="purple" style="background-image: url('{{ asset('assets/img/bg7.jpg') }}'); background-size: cover; background-position: top center;">
+        <div class="container">
+            <div class="card card-signup">
+                <div class="header header-primary text-center">
+                    <h4 class="card-title">Votre profil</h4>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-4">
+                            {% if user.avatar %}
+                                <img src="{{ asset('assets/avatars/'~user.avatar) }}" alt="Rounded Image" class="img-rounded img-responsive">
+                            {% else %}
+                                <img src="{{ asset('assets/avatars/default.png') }}" alt="Rounded Image" class="img-rounded img-responsive">
+                            {% endif %}
+                        </div>
+                        <div class="col-md-6 col-md-offset-1">
+                            <h1 class="text-primary font-weight-bold">{{ user.username }}</h1>
+                            <hr>
+                            <h4 class="text-primary">Adresse email</h4>
+                            <p>{{ user.email }}</p>
+                            <hr>
+                            <h4 class="text-primary">Description</h4>
+                            <p>{{ user.description }}</p>
+                            <a href="{{ path('blogspot_profile_edit_password') }}"><button class="btn btn-primary">Modifier votre mot de passe</button></a>
+                            <a href="{{ path('blogspot_profile_edit') }}"><button class="btn btn-primary">Modifier vos informations</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
