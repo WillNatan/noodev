@@ -87,3 +87,11 @@ form{
 .note-editor.note-frame .note-editing-area .note-codable{
     height:500px!important;
 }
+
+.d-flex{
+    display: flex;
+}
+
+.flex-grow-0{
+    flex-grow: 0;
+}
