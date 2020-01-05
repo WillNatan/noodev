@@ -95,3 +95,8 @@ form{
 .flex-grow-0{
     flex-grow: 0;
 }
+
+.page-header{
+    min-height: 60vh!important;
+    height:100vh!important;
+}
