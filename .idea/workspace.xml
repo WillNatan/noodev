@@ -14,6 +14,9 @@
       <executable />
     </execution>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/symfony/browser-kit" />
@@ -133,7 +136,9 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1VIFGqiYAQHActo3oUdFR2LfdoQ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -141,11 +146,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\noodev" />
       <recent name="C:\laragon\www\noodev\templates\front" />
       <recent name="C:\laragon\www\noodev\src\Form" />
       <recent name="C:\laragon\www\noodev\public\assets\img" />
       <recent name="C:\laragon\www\noodev\public\assets\avatars" />
-      <recent name="C:\laragon\www\noodev\templates\back" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -193,11 +198,22 @@
       <workItem from="1578144788972" duration="5950000" />
       <workItem from="1578156798240" duration="783000" />
       <workItem from="1578157650515" duration="215000" />
-      <workItem from="1578197231355" duration="10498000" />
+      <workItem from="1578197231355" duration="10988000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
