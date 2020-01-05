@@ -38,13 +38,6 @@ class FrontController extends AbstractController
      */
     public function index(Request $request, ArticlesRepository $articlesRepository, UserPasswordEncoderInterface $encoder)
     {
-
-        $ip = new Ips();
-        $ip->setAddr($request->getClientIp());
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($ip);
-        $em->flush();
-
         $user = new User();
         $form = $this->createForm(RegisterType::class, $user);
         $form->handleRequest($request);
