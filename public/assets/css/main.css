@@ -47,6 +47,10 @@ form{
     width:100%!important;
 }
 
+.d-none{
+    display: none!important;
+}
+
 @media screen  and (min-width: 768px){
     .btn {
         flex-grow: 0;
@@ -54,6 +58,9 @@ form{
 
     .d-md-none{
         display: none!important;
+    }
+    .d-md-block{
+        display: block!important;
     }
 
     form{

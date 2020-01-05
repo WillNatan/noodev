@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0c926874-25d0-497d-b867-1e35c80d7cf5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/posts.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/posts.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -203,7 +202,7 @@
       <workItem from="1578157650515" duration="215000" />
       <workItem from="1578197231355" duration="12545000" />
       <workItem from="1578211309705" duration="285000" />
-      <workItem from="1578212113762" duration="280000" />
+      <workItem from="1578212113762" duration="574000" />
     </task>
     <servers />
   </component>
