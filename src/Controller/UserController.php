@@ -61,6 +61,8 @@ class UserController extends AbstractController
                     }
                     $user->setAvatar($newfn);
                 }
+            }else{
+                $user->setAvatar('default.png');
             }
 
             $newPassword = $encoder->encodePassword($user, $user->getPlainPassword());
