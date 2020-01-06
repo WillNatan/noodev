@@ -204,7 +204,7 @@ class FrontController extends AbstractController
     /**
      * @Route("/blog/{slug}", name="single_blog", methods={"POST", "GET"})
      */
-    public function singleBlog(Articles $articles,CommentRepository $commentRepository, ArticlesRepository $articlesRepository, UserRepository $userRepository, IpsRepository $ipsRepository,Request $request): Response
+    public function singleBlog(Articles $articles,CommentRepository $commentRepository, ArticlesRepository $articlesRepository, UserRepository $userRepository,Request $request): Response
     {
 
         $relatedPosts = $articlesRepository->findBy(['Category'=>$articles->getCategory()],['id'=>'ASC'],'3');

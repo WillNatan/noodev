@@ -53,10 +53,6 @@ class Comment
      */
     private $User;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Ips", mappedBy="LikedComments")
-     */
-    private $ipAddr;
 
     public function __construct()
     {
@@ -172,31 +168,4 @@ class Comment
         return $this;
     }
 
-    /**
-     * @return Collection|Ips[]
-     */
-    public function getIpAddr(): Collection
-    {
-        return $this->ipAddr;
-    }
-
-    public function addIpAddr(Ips $ipAddr): self
-    {
-        if (!$this->ipAddr->contains($ipAddr)) {
-            $this->ipAddr[] = $ipAddr;
-            $ipAddr->addLikedComment($this);
-        }
-
-        return $this;
-    }
-
-    public function removeIpAddr(Ips $ipAddr): self
-    {
-        if ($this->ipAddr->contains($ipAddr)) {
-            $this->ipAddr->removeElement($ipAddr);
-            $ipAddr->removeLikedComment($this);
-        }
-
-        return $this;
-    }
 }
