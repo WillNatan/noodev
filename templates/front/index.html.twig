@@ -94,7 +94,7 @@
                                 {% else %}
                                     {% if loop.index == 2 %}
                                     <div class="col-md-6">
-                                        <div class="card card-raised card-background" style="background-image: url('{{ article.thumbnailImg }}')">
+                                        <div class="card card-raised card-background" style="background-image: url('{{ asset('assets/allImg/'~article.thumbnailImg) }}')">
                                             <div class="card-content">
                                                 <h6 class="category text-info">{{ article.category.name }}</h6>
                                                 <h3 class="card-title">{{ article.title }}</h3>
@@ -110,7 +110,7 @@
                                     {% else %}
                                         {% if loop.index == 3 %}
                                             <div class="col-md-12">
-                                                <div class="card card-raised card-background" style="background-image: url('{{ article.thumbnailImg }}')">
+                                                <div class="card card-raised card-background" style="background-image: url('{{ asset('assets/allImg/'~article.thumbnailImg) }}')">
                                                     <div class="card-content">
                                                         <h6 class="category text-info">{{ article.category.name }}</h6>
                                                         <h3 class="card-title">{{ article.title }}</h3>
@@ -129,7 +129,7 @@
                                         <div class="card card-plain card-blog">
                                             <div class="card-image">
                                                 <a href="{{ path('single_blog', {'id':article.id}) }}" class="article-view" data-article="{{ article.id }}">
-                                                    <img class="img img-raised" src="{{ article.thumbnailImg }}" />
+                                                    <img class="img img-raised" src="{{ asset('assets/allImg/'~article.thumbnailImg) }}" />
                                                 </a>
                                             </div>
 
