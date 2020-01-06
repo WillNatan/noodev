@@ -101,7 +101,7 @@
                                                 <p class="card-description">
                                                     {{ article.description }}
                                                 </p>
-                                                <a href="{{ path('single_blog',{'id':article.id}) }}" data-article="{{ article.id }}" class="article-view btn btn-primary btn-round">
+                                                <a href="{{ path('single_blog',{'slug':article.slug}) }}" data-article="{{ article.id }}" class="article-view btn btn-primary btn-round">
                                                     <i class="material-icons">format_align_left</i> Lire l'article
                                                 </a>
                                             </div>
@@ -117,7 +117,7 @@
                                                         <p class="card-description">
                                                             {{ article.description }}
                                                         </p>
-                                                        <a href="{{ path('single_blog',{"id":article.id}) }}" data-article="{{ article.id }}" class="article-view btn btn-warning btn-round">
+                                                        <a href="{{ path('single_blog',{"slug":article.slug}) }}" data-article="{{ article.id }}" class="article-view btn btn-warning btn-round">
                                                             <i class="material-icons">subject</i> Lire l'article
                                                         </a>
 
