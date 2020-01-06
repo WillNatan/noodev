@@ -74,15 +74,15 @@ class FrontController extends AbstractController
     /**
      * @Route("/modifier-vos-informations", name="blogspot_profile_edit")
      */
-    public function infoprofil(Request $request, ArticlesRepository $articlesRepository, UserPasswordEncoderInterface $encoder)
+    public function infoprofil(Request $request, ArticlesRepository $articlesRepository, UserRepository $userRepository, UserPasswordEncoderInterface $encoder)
     {
         $user =$this->getUser();
+        $oldAvatar = $user->getAvatar();
         $form = $this->createForm(FrontUserEditType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $avatar = $user->getAvatar();
-
             if($avatar)
             {
                 $newfn = $avatar->getClientOriginalName();
@@ -95,6 +95,10 @@ class FrontController extends AbstractController
                     // ... handle exception if something happens during file upload
                 }
                 $user->setAvatar($newfn);
+            }
+            else{
+                $currentUser = $userRepository->findOneBy(['id'=>$user->getId()]);
+                $currentUser->setAvatar($oldAvatar);
             }
             /*
              * if($encoder->isPasswordValid($user, $oldPassword)){
