@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0c926874-25d0-497d-b867-1e35c80d7cf5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/assets/dashboard/js/material-dashboard.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/FrontController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FrontController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/dashboard/js/material-dashboard.min40a0.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/dashboard/js/material-dashboard.min40a0.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ArticlesType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ArticlesType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/articles/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/articles/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/articles/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/articles/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/back/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/back/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/category/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/new.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -144,17 +152,17 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../materialdashboard" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\noodev\public\assets\dashboard\js" />
+      <recent name="C:\laragon\www\noodev\public\assets\dashboard\js\core" />
       <recent name="C:\laragon\www\noodev" />
       <recent name="C:\laragon\www\noodev\templates\front" />
       <recent name="C:\laragon\www\noodev\src\Form" />
-      <recent name="C:\laragon\www\noodev\public\assets\img" />
-      <recent name="C:\laragon\www\noodev\public\assets\avatars" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -206,7 +214,8 @@
       <workItem from="1578211309705" duration="285000" />
       <workItem from="1578212113762" duration="3655000" />
       <workItem from="1578224279431" duration="600000" />
-      <workItem from="1578314630989" duration="2741000" />
+      <workItem from="1578314630989" duration="5221000" />
+      <workItem from="1578321964429" duration="1251000" />
     </task>
     <servers />
   </component>

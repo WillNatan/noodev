@@ -19,7 +19,7 @@ class ArticlesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('body', TextareaType::class, ['attr'=>['class'=>'form-control', 'data-toggle'=>'quill']])
+            ->add('body', TextareaType::class, ['attr'=>[]])
             ->add('thumbnail_img', FileType::class,
                 [
                     'constraints' => [
