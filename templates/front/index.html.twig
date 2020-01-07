@@ -127,19 +127,19 @@
                                         {% else %}
                                     <div class="col-md-4">
                                         <div class="card card-plain card-blog">
+                                            <a href="{{ path('single_blog', {'slug':article.slug}) }}" class="article-view" data-article="{{ article.id }}">
                                             <div class="card-image">
-                                                <a href="{{ path('single_blog', {'id':article.id}) }}" class="article-view" data-article="{{ article.id }}">
                                                     <img class="img img-raised" src="{{ asset('assets/allImg/'~article.thumbnailImg) }}" />
-                                                </a>
-                                            </div>
 
+                                            </div>
+                                            </a>
                                             <div class="card-content">
                                                 <h6 class="category text-info">{{ article.category.name }}</h6>
                                                 <h4 class="card-title">
-                                                    <a href="{{ path('single_blog', {'id':article.id}) }}" class="article-view" data-article="{{ article.id }}">{{ article.title }}</a>
+                                                    <a href="{{ path('single_blog', {'slug':article.slug}) }}" class="article-view" data-article="{{ article.id }}">{{ article.title }}</a>
                                                 </h4>
                                                 <p class="card-description">
-                                                    {{ article.description }}<a href="{{ path('single_blog', {'id':article.id}) }}"> Voir plus </a>
+                                                    {{ article.description }}<a href="{{ path('single_blog', {'slug':article.slug}) }}"> Voir plus </a>
                                                 </p>
 
                                                 <p class="author text-right"><i class="material-icons">remove_red_eye</i>{{ article.views }} <i class="material-icons">calendar_today</i> {{ article.createdAt|date('d-m-y') }}</p>
