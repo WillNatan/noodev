@@ -4,7 +4,6 @@
     <list default="true" id="0c926874-25d0-497d-b867-1e35c80d7cf5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/index.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -144,7 +143,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../materialdashboard" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
@@ -208,7 +207,11 @@
       <workItem from="1578224279431" duration="600000" />
       <workItem from="1578314630989" duration="5221000" />
       <workItem from="1578321964429" duration="4055000" />
-      <workItem from="1578396643805" duration="717000" />
+      <workItem from="1578396643805" duration="1763000" />
+      <workItem from="1578976800114" duration="5000" />
+      <workItem from="1579289696696" duration="3000" />
+      <workItem from="1579935551509" duration="6000" />
+      <workItem from="1582040280811" duration="465000" />
     </task>
     <servers />
   </component>
