@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0c926874-25d0-497d-b867-1e35c80d7cf5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/noodev.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/noodev.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -140,10 +140,16 @@
   </component>
   <component name="ProjectId" id="1VIFGqiYAQHActo3oUdFR2LfdoQ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../catalogue-rapport" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
@@ -155,18 +161,6 @@
       <recent name="C:\laragon\www\noodev\templates\front" />
       <recent name="C:\laragon\www\noodev\src\Form" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -213,6 +207,10 @@
       <workItem from="1579935551509" duration="6000" />
       <workItem from="1582040280811" duration="1115000" />
       <workItem from="1582211641319" duration="2040000" />
+      <workItem from="1591632158967" duration="589000" />
+      <workItem from="1592768610393" duration="494000" />
+      <workItem from="1592827790611" duration="599000" />
+      <workItem from="1592890092556" duration="24000" />
     </task>
     <servers />
   </component>
@@ -231,5 +229,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1592890115592">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1592890115592" />
   </component>
 </project>
